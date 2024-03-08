@@ -1,0 +1,76 @@
+h1{
+    background-color: blueviolet;
+    color: aliceblue;
+    text-align: center;
+    font-size: 45px;
+}
+body{
+    background-color: rgb(146, 146, 133);
+}
+.title{
+    text-align: center;
+    font-size: 30px;
+    padding: 0 50px 20px 20px;
+}
+.card{
+    width: 600px;
+    margin: 0 auto;
+    background-color: #e3ddd4;
+    padding: 0 20px 20px 20px;
+    border: 3px solid black;
+    
+}
+.lineInput{
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+    padding: 0 150px 20px 0px;
+    margin-top: 10px;
+}
+
+button{
+    background-color: blueviolet;
+    color: aliceblue;
+}
+button:hover{
+    background-color: blueviolet;
+}
+.content{
+    margin-top: 15px;
+    width: 600px;
+    margin: auto;
+    margin-top: 10px;
+    background-color: #e3ddd4;
+    padding: 0 20px 20px 20px;
+    border: 3px solid black;
+}
+table{
+    border-collapse: collapse;
+    border: 1px solid #ccc;
+    width: 100%;
+}
+table th{
+    background-color: antiquewhite;
+}
+table th, td{
+    padding: 1px,5px;
+    text-align: left;
+}
+table td img{
+    width: 22px;
+}
+.center{
+    text-align: center;
+}
+footer{
+    text-align: right;
+    margin-top: 400px;
+    padding-right: 80px;
+   
+}
+.link{
+    text-decoration: none;
+    color: black;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-size: large;
+}
