@@ -88,8 +88,8 @@ class Produto {
     }
   }
 
-  deleta(id) {
-    if (confirm("Deseja deletar o produto: " + id)) {
+  deleta(id,nome) {
+    if (confirm("Deseja deletar o id: " + id )) {
       let tbody = document.getElementById("tbody");
 
       for (let i = 0; i < this.arrayProdutos.length; i++) {
