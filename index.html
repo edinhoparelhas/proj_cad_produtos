@@ -16,28 +16,33 @@
         <span>Lista de produtos da Minha Loja </span>
       </div>
       <div class="card">
-        <div class="lineInput">
+        <div class="bloco1">
+          <div class="div1">
             <label>Codigo *</label>
-            <input type="number" id="codigo" placeholder=" Codigo do Produto" />
+            <input class="entry"  type="number" id="codigo" placeholder=" Codigo do Produto" />
+            <label>Produto *</label>
+            <input class="entry"  type="text" id="produto" placeholder=" Nome do Produto" />
+            <label>Valor *</label>
+            <input class="entry"  type="number" id="preco" placeholder=" Valor do Produto" />
+            <label>Quantidade *</label>
+            <input class="entry" 
+              type="number"
+              id="quantidade"
+              placeholder=" Quantidade do Produto"
+            />
           </div>
-        <div class="lineInput">
-          <label>Produto *</label>
-          <input type="text" id="produto" placeholder=" Nome do Produto" />
+          <div class="div2">
+            <img
+              class="logo"
+              src="img/img_mercadinho.png"
+              alt="mercadiho oliveira"
+            />
+          </div>
         </div>
-        <div class="lineInput">
-          <label>Valor *</label>
-          <input type="number" id="preco" placeholder=" Valor do Produto" />
+        <div class="div3">
+          <button onclick=" produto.salvar()" id="bt1">Salvar</button>
+          <button onclick=" produto.cancelar()">Limpar</button>
         </div>
-        <div class="lineInput">
-          <label>Quantidade *</label>
-          <input
-            type="number"
-            id="quantidade"
-            placeholder=" Quantidade do Produto"
-          />
-        </div>
-        <button onclick=" produto.salvar()" id="bt1">Salvar</button>
-        <button onclick=" produto.cancelar()">Limpar</button>
       </div>
       <div class="content">
         <table border="1">
