@@ -24,8 +24,8 @@ body{
     display: flex;
     justify-content: space-between;
     flex-direction: column;
-    padding: 0 150px 20px 0px;
-    margin-top: 10px;
+    padding: 0 250px 10px 0px;
+    margin-top: 3px;
 }
 
 button{

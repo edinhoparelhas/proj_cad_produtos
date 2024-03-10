@@ -1,56 +1,63 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>cadastro de produtos</title>
-    <link rel="stylesheet" href="style.css">
-</head>
-<body>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
     <header>
-        <h1>Minha Loja 1.0</h1>
+      <h1>Minha Loja 1.0</h1>
     </header>
     <main>
-        <div class="title">
-            <h2>Produtos</h2>
-            <span>Lista de produtos da Minha Loja </span>
+      <div class="title">
+        <h2>Produtos</h2>
+        <span>Lista de produtos da Minha Loja </span>
+      </div>
+      <div class="card">
+        <div class="lineInput">
+            <label>Codigo *</label>
+            <input type="number" id="codigo" placeholder=" Codigo do Produto" />
+          </div>
+        <div class="lineInput">
+          <label>Produto *</label>
+          <input type="text" id="produto" placeholder=" Nome do Produto" />
         </div>
-        <div class="card">
-            <div class="lineInput">
-                <label >Produto *</label>
-                <input type="text" id="produto" placeholder=" Nome do Produto">
-
-            </div>
-            <div class="lineInput">
-                <label >Valor *</label>
-                <input type="number" id="preco" placeholder=" Valor do Produto">
-
-                
-                
-            </div>
-            <button onclick=" produto.salvar()" id="bt1">Salvar</button>
-            <button onclick=" produto.cancelar()">Limpar</button>
-            
+        <div class="lineInput">
+          <label>Valor *</label>
+          <input type="number" id="preco" placeholder=" Valor do Produto" />
         </div>
-        <div class="content">
-            <table border="1">
-                <thead>
-                    <th class="center">ID</th>
-                    <th>Produto</th>
-                    <th>Valor</th>
-                    <th class="center">Ações</th>
-                </thead>
-                <tbody id="tbody">
-
-                </tbody>
-
-            </table>
+        <div class="lineInput">
+          <label>Quantidade *</label>
+          <input
+            type="number"
+            id="quantidade"
+            placeholder=" Quantidade do Produto"
+          />
         </div>
-
+        <button onclick=" produto.salvar()" id="bt1">Salvar</button>
+        <button onclick=" produto.cancelar()">Limpar</button>
+      </div>
+      <div class="content">
+        <table border="1">
+          <thead>
+            <th class="center">Cod. Produto</th>
+            <th>Produto</th>
+            <th>Valor</th>
+            <th>Quantidade</th>
+            <th class="center">Ações</th>
+          </thead>
+          <tbody id="tbody"></tbody>
+        </table>
+      </div>
     </main>
     <footer>
-        <p>Pagina criada por <a class="link" href="https://github.com/edinhoparelhas">edinho</a></p>
+      <p>
+        Pagina criada por
+        <a class="link" href="https://github.com/edinhoparelhas">edinho</a>
+      </p>
     </footer>
     <script src="model.js"></script>
-</body>
+  </body>
 </html>

@@ -1,50 +1,57 @@
 class Produto {
   constructor() {
-    this.id = 1;
     this.arrayProdutos = [];
-    this.editId=null;
+    this.editId = null;
   }
 
   lerDados() {
     let produto = {};
-    produto.id = this.id;
+    produto.codigo = document.getElementById("codigo").value;
     produto.nome = document.getElementById("produto").value;
     produto.preco = document.getElementById("preco").value;
+    produto.quantidade = document.getElementById("quantidade").value;
     return produto;
   }
   salvar() {
     let produto = this.lerDados();
     if (this.validaCampos(produto)) {
-        if(this.editId == null){
-            this.adicionar(produto);
-        } else{
-            this.atualiza(this.editId,produto);
-        }
-      
+      if (this.editId == null) {
+        this.adicionar(produto);
+      } else {
+        this.atualiza(this.editId, produto);
+      }
     }
     this.listaTabela();
-    this.cancelar();
+    this.limpaCampos();
 
     console.log(this.arrayProdutos);
   }
   adicionar(produto) {
-    produto.preco=parseFloat(produto.preco);
+    produto.preco = parseFloat(produto.preco);
     this.arrayProdutos.push(produto);
     this.id++;
   }
-  cancelar() {
+  limpaCampos() {
+    document.getElementById("codigo").value = "";
     document.getElementById("produto").value = "";
     document.getElementById("preco").value = "";
-    document.getElementById("bt1").innerText= "Salvar";
+    document.getElementById("quantidade").value = "";
+    document.getElementById("bt1").innerText = "Salvar";
     this.editId = null;
   }
   validaCampos(produto) {
     let msg = "";
+    if (produto.codigo == "") {
+      msg += " Informe o Codigo do produto \n";
+    }
     if (produto.nome == "") {
       msg += " Informe o Nome do produto \n";
     }
     if (produto.preco == "") {
       msg += " Informe o Preço do Produto \n";
+    }
+    if (produto.quantidade == "") {
+      msg += "Informe a Quantidade do Produto \n";
     }
     if (msg != "") {
       alert(msg);
@@ -60,15 +67,17 @@ class Produto {
     for (let i = 0; i < this.arrayProdutos.length; i++) {
       let tr = tbody.insertRow();
 
-      let td_id = tr.insertCell();
+      let td_codigo = tr.insertCell();
       let td_produto = tr.insertCell();
       let td_valor = tr.insertCell();
+      let td_quantidade = tr.insertCell();
       let td_acoes = tr.insertCell();
-      td_id.innerText = this.arrayProdutos[i].id;
+      td_codigo.innerText = this.arrayProdutos[i].codigo;
       td_produto.innerText = this.arrayProdutos[i].nome;
       td_valor.innerText = this.arrayProdutos[i].preco;
+      td_quantidade.innerText = this.arrayProdutos[i].quantidade;
 
-      td_id.classList.add("center");
+      td_codigo.classList.add("center");
       td_acoes.classList.add("center");
       let imgEdit = document.createElement("img");
       imgEdit.src = "img/editar.png";
@@ -82,18 +91,18 @@ class Produto {
       imgDelete.src = "img/delet.png";
       imgDelete.setAttribute(
         "onclick",
-        "produto.deleta(" + this.arrayProdutos[i].id + ")"
+        "produto.deleta(" + this.arrayProdutos[i].codigo + ")"
       );
       td_acoes.appendChild(imgDelete);
     }
   }
 
-  deleta(id,nome) {
-    if (confirm("Deseja deletar o id: " + id )) {
+  deleta(codigo) {
+    if (confirm("Deseja deletar o Codigo: " + codigo)) {
       let tbody = document.getElementById("tbody");
 
       for (let i = 0; i < this.arrayProdutos.length; i++) {
-        if (this.arrayProdutos[i].id == id) {
+        if (this.arrayProdutos[i].codigo == codigo) {
           this.arrayProdutos.splice(i, 1);
           tbody.deleteRow(i);
         }
@@ -101,21 +110,23 @@ class Produto {
     }
   }
   edita(dados) {
-    this.editId = dados.id;
-
+    this.editId = dados.codigo;
+    document.getElementById("codigo").value = dados.codigo;
     document.getElementById("produto").value = dados.nome;
     document.getElementById("preco").value = dados.preco;
+    document.getElementById("quantidade").value = dados.quantidade;
 
-    document.getElementById("bt1").innerText="Atualizar"
+    document.getElementById("bt1").innerText = "Atualizar";
   }
 
-  atualiza(id,produto){
+  atualiza(codigo, produto) {
     for (let i = 0; i < this.arrayProdutos.length; i++) {
-        if (this.arrayProdutos[i].id == id){
-            this.arrayProdutos[i].nome = produto.nome;
-            this.arrayProdutos[i].preco = produto.preco;
-        }
-
+      if (this.arrayProdutos[i].codigo == codigo) {
+        this.arrayProdutos[i].codigo = produto.codigo;
+        this.arrayProdutos[i].nome = produto.nome;
+        this.arrayProdutos[i].preco = produto.preco;
+        this.arrayProdutos[i].quantidade = produto.quantidade;
+      }
     }
   }
 }
